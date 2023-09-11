@@ -1,0 +1,25 @@
+"filename", "language", "JSON", "JavaScript", "JSON with Comments", "YAML", "TypeScript", "TypeScript JSX", "CSS", "HTML", "SVG", "Markdown", "comment", "blank", "total"
+"c:\Users\drew\Programs\School\Greer-Cap\.eslintrc.cjs", "JavaScript", 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 19
+"c:\Users\drew\Programs\School\Greer-Cap\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 9, 28
+"c:\Users\drew\Programs\School\Greer-Cap\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 1, 14
+"c:\Users\drew\Programs\School\Greer-Cap\package.json", "JSON", 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43
+"c:\Users\drew\Programs\School\Greer-Cap\pnpm-lock.yaml", "YAML", 0, 0, 0, 2652, 0, 0, 0, 0, 0, 0, 0, 383, 3035
+"c:\Users\drew\Programs\School\Greer-Cap\postcss.config.js", "JavaScript", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"c:\Users\drew\Programs\School\Greer-Cap\public\vite.svg", "SVG", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1
+"c:\Users\drew\Programs\School\Greer-Cap\src\App.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 1, 2, 28
+"c:\Users\drew\Programs\School\Greer-Cap\src\assets\laser.svg", "SVG", 0, 0, 0, 0, 0, 0, 0, 0, 67, 0, 0, 1, 68
+"c:\Users\drew\Programs\School\Greer-Cap\src\assets\questions.ts", "TypeScript", 0, 0, 0, 0, 375, 0, 0, 0, 0, 0, 0, 3, 378
+"c:\Users\drew\Programs\School\Greer-Cap\src\components\Blobs.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 1, 145
+"c:\Users\drew\Programs\School\Greer-Cap\src\components\Header.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1, 2, 11
+"c:\Users\drew\Programs\School\Greer-Cap\src\index.css", "CSS", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\drew\Programs\School\Greer-Cap\src\main.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\drew\Programs\School\Greer-Cap\src\pages\Game.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 296, 0, 0, 0, 0, 6, 23, 325
+"c:\Users\drew\Programs\School\Greer-Cap\src\pages\Home.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 239, 0, 0, 0, 0, 8, 12, 259
+"c:\Users\drew\Programs\School\Greer-Cap\src\utils\Atoms.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 3, 8
+"c:\Users\drew\Programs\School\Greer-Cap\src\utils\firebase.ts", "TypeScript", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 6, 3, 26
+"c:\Users\drew\Programs\School\Greer-Cap\src\vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"c:\Users\drew\Programs\School\Greer-Cap\tailwind.config.js", "JavaScript", 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 38
+"c:\Users\drew\Programs\School\Greer-Cap\tsconfig.json", "JSON with Comments", 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 2, 3, 26
+"c:\Users\drew\Programs\School\Greer-Cap\tsconfig.node.json", "JSON", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11
+"c:\Users\drew\Programs\School\Greer-Cap\vite.config.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 2, 8
+"Total", "-", 52, 59, 21, 2652, 402, 721, 12, 13, 68, 19, 28, 459, 4506
