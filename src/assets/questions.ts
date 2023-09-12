@@ -1,6 +1,8 @@
+// Your job is to create capitalization questions for the game. don't repeate the options.
+
 interface Question {
   question: string;
-  points: 10 | 25 | 50;
+  points: 15 | 25 | 50;
   options: string[];
   answer: string;
 }
@@ -13,7 +15,7 @@ export const data: Data = {
   questions: [
     {
       question: "Which of the following is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: [
         "apple pie is delicious.",
         "Apple pie is delicious.",
@@ -24,13 +26,13 @@ export const data: Data = {
     },
     {
       question: "Which city name is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: ["new york", "New york", "new York", "New York"],
       answer: "New York",
     },
     {
       question: "Which sentence is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: [
         "it's a beautiful day in the neighborhood.",
         "It's a Beautiful day in the neighborhood.",
@@ -41,7 +43,7 @@ export const data: Data = {
     },
     {
       question: "Which title is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: [
         "lord of the rings",
         "Lord Of The Rings",
@@ -52,19 +54,19 @@ export const data: Data = {
     },
     {
       question: "Which brand name is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: ["microsoft", "MicroSoft", "Microsoft", "MicrosOft"],
       answer: "Microsoft",
     },
     {
       question: "Which month is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: ["october", "OctOber", "octOber", "October"],
       answer: "October",
     },
     {
       question: "Which holiday is correctly capitalized?",
-      points: 10,
+      points: 15,
       options: [
         "valentine's day",
         "Valentine's Day",
@@ -75,7 +77,7 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization of a famous landmark?",
-      points: 10,
+      points: 15,
       options: [
         "statue of liberty",
         "Statue of liberty",
@@ -86,7 +88,7 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization for a famous painting?",
-      points: 10,
+      points: 15,
       options: [
         "the starry night",
         "The starry night",
@@ -97,37 +99,37 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization for a planet?",
-      points: 10,
+      points: 15,
       options: ["mars", "Mars", "MARS", "mARs"],
       answer: "Mars",
     },
     {
       question: "Which is the correct capitalization for a day of the week?",
-      points: 10,
+      points: 15,
       options: ["friday", "Friday", "FRIDAY", "friDay"],
       answer: "Friday",
     },
     {
       question: "Which is the correct capitalization for a country?",
-      points: 10,
+      points: 15,
       options: ["canada", "Canada", "CANADA", "cAnada"],
       answer: "Canada",
     },
     {
       question: "Which is the correct capitalization for a continent?",
-      points: 10,
+      points: 15,
       options: ["africa", "Africa", "AFRICA", "aFrica"],
       answer: "Africa",
     },
     {
       question: "Which is the correct capitalization for a famous author?",
-      points: 10,
+      points: 15,
       options: ["j.k. rowling", "J.K. Rowling", "J.k. Rowling", "j.K. Rowling"],
       answer: "J.K. Rowling",
     },
     {
       question: "Which is the correct capitalization for a famous scientist?",
-      points: 10,
+      points: 15,
       options: [
         "albert einstein",
         "Albert einstein",
@@ -138,7 +140,7 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization for a river?",
-      points: 10,
+      points: 15,
       options: [
         "mississippi river",
         "Mississippi river",
@@ -149,7 +151,7 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization for a mountain?",
-      points: 10,
+      points: 15,
       options: [
         "mount everest",
         "Mount everest",
@@ -159,14 +161,193 @@ export const data: Data = {
       answer: "Mount Everest",
     },
     {
-      question: "Which is the correct capitalization for a famous building?",
-      points: 10,
-      options: ["eiffel tower", "Eiffel tower", "eiffel Tower", "Eiffel Tower"],
-      answer: "Eiffel Tower",
+      question: "Which of the following is correctly capitalized?",
+      points: 15,
+      options: ["arctic ocean", "Arctic ocean", "arctic Ocean", "Arctic Ocean"],
+      answer: "Arctic Ocean",
     },
     {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "sahara desert",
+        "Sahara desert",
+        "sahara Desert",
+        "Sahara Desert",
+      ],
+      answer: "Sahara Desert",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "great barrier reef",
+        "Great barrier reef",
+        "Great Barrier reef",
+        "Great Barrier Reef",
+      ],
+      answer: "Great Barrier Reef",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "himalayan mountains",
+        "Himalayan mountains",
+        "Himalayan Mountains",
+        "himalayan Mountains",
+      ],
+      answer: "Himalayan Mountains",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["amazon river", "Amazon river", "Amazon River", "amazon River"],
+      answer: "Amazon River",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "grand central station",
+        "Grand central station",
+        "Grand Central station",
+        "Grand Central Station",
+      ],
+      answer: "Grand Central Station",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "statue of liberty",
+        "Statue of liberty",
+        "Statue Of Liberty",
+        "Statue of Liberty",
+      ],
+      answer: "Statue of Liberty",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["times square", "Times square", "Times Square", "times Square"],
+      answer: "Times Square",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["central park", "Central park", "Central Park", "central Park"],
+      answer: "Central Park",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "golden gate bridge",
+        "Golden gate bridge",
+        "Golden Gate bridge",
+        "Golden Gate Bridge",
+      ],
+      answer: "Golden Gate Bridge",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "tower of london",
+        "Tower of london",
+        "Tower Of London",
+        "Tower of London",
+      ],
+      answer: "Tower of London",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "buckingham palace",
+        "Buckingham palace",
+        "Buckingham Palace",
+        "buckingham Palace",
+      ],
+      answer: "Buckingham Palace",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["stonehenge", "Stonehenge", "STONEHENGE", "StoneHenge"],
+      answer: "Stonehenge",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the last supper",
+        "The last supper",
+        "The Last Supper",
+        "the Last supper",
+      ],
+      answer: "The Last Supper",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the mona lisa",
+        "The mona lisa",
+        "The Mona Lisa",
+        "the Mona lisa",
+      ],
+      answer: "The Mona Lisa",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the sistine chapel",
+        "The sistine chapel",
+        "The Sistine Chapel",
+        "the Sistine chapel",
+      ],
+      answer: "The Sistine Chapel",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the colosseum",
+        "The colosseum",
+        "The Colosseum",
+        "the Colosseum",
+      ],
+      answer: "The Colosseum",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the eiffel tower",
+        "The eiffel tower",
+        "The Eiffel Tower",
+        "the Eiffel tower",
+      ],
+      answer: "The Eiffel Tower",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the great wall of china",
+        "The great wall of china",
+        "The Great Wall of China",
+        "the Great wall of china",
+      ],
+      answer: "The Great Wall of China",
+    },
+
+    {
       question: "Which is the correct capitalization for a famous movie?",
-      points: 10,
+      points: 15,
       options: [
         "the godfather",
         "The godfather",
@@ -177,7 +358,7 @@ export const data: Data = {
     },
     {
       question: "Which is the correct capitalization for an ocean?",
-      points: 10,
+      points: 15,
       options: [
         "pacific ocean",
         "Pacific ocean",
@@ -185,6 +366,217 @@ export const data: Data = {
         "Pacific Ocean",
       ],
       answer: "Pacific Ocean",
+    },
+
+    {
+      question: "Which of the following is correctly capitalized?",
+      points: 15,
+      options: ["french fries", "French fries", "French Fries", "french Fries"],
+      answer: "French fries",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["spanish flu", "Spanish flu", "Spanish Flu", "spanish Flu"],
+      answer: "Spanish flu",
+    },
+
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the lion king",
+        "The lion king",
+        "The Lion king",
+        "The Lion King",
+      ],
+      answer: "The Lion King",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "romeo and juliet",
+        "Romeo and juliet",
+        "Romeo And Juliet",
+        "Romeo and Juliet",
+      ],
+      answer: "Romeo and Juliet",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the white house",
+        "The white house",
+        "The White house",
+        "The White House",
+      ],
+      answer: "The White House",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the big bang theory",
+        "The Big bang theory",
+        "The big Bang Theory",
+        "The Big Bang Theory",
+      ],
+      answer: "The Big Bang Theory",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "game of thrones",
+        "Game of thrones",
+        "Game Of Thrones",
+        "Game of Thrones",
+      ],
+      answer: "Game of Thrones",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "stranger things",
+        "Stranger things",
+        "Stranger Things",
+        "stranger Things",
+      ],
+      answer: "Stranger Things",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the grand budapest hotel",
+        "The Grand budapest hotel",
+        "The Grand Budapest Hotel",
+        "The grand Budapest hotel",
+      ],
+      answer: "The Grand Budapest Hotel",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the shawshank redemption",
+        "The Shawshank redemption",
+        "The shawshank Redemption",
+        "The Shawshank Redemption",
+      ],
+      answer: "The Shawshank Redemption",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["breaking bad", "Breaking bad", "Breaking Bad", "breaking Bad"],
+      answer: "Breaking Bad",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the godfather",
+        "The godfather",
+        "The Godfather",
+        "the Godfather",
+      ],
+      answer: "The Godfather",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["the beatles", "The beatles", "The Beatles", "the Beatles"],
+      answer: "The Beatles",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the rolling stones",
+        "The rolling stones",
+        "The Rolling Stones",
+        "the Rolling stones",
+      ],
+      answer: "The Rolling Stones",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["the simpsons", "The simpsons", "The Simpsons", "the Simpsons"],
+      answer: "The Simpsons",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["the office", "The office", "The Office", "the Office"],
+      answer: "The Office",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["the crown", "The crown", "The Crown", "the Crown"],
+      answer: "The Crown",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the mandalorian",
+        "The mandalorian",
+        "The Mandalorian",
+        "the Mandalorian",
+      ],
+      answer: "The Mandalorian",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["the witcher", "The witcher", "The Witcher", "the Witcher"],
+      answer: "The Witcher",
+    },
+
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "harry potter and the sorcerer's stone",
+        "Harry Potter and the Sorcerer's Stone",
+        "Harry potter and the sorcerer's stone",
+        "harry Potter And The Sorcerer's Stone",
+      ],
+      answer: "Harry Potter and the Sorcerer's Stone",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "the great depression",
+        "The Great Depression",
+        "The great depression",
+        "the Great depression",
+      ],
+      answer: "The Great Depression",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: ["river nile", "River nile", "River Nile", "RIVER NILE"],
+      answer: "River Nile",
+    },
+    {
+      question: "Which is correctly capitalized?",
+      points: 15,
+      options: [
+        "african elephant",
+        "African Elephant",
+        "African elephant",
+        "african Elephant",
+      ],
+      answer: "African elephant",
     },
     {
       question: "Which of the following sentences is correctly capitalized?",
@@ -251,17 +643,6 @@ export const data: Data = {
         "The Declaration of independence was signed in 1776.",
       ],
       answer: "The Declaration of Independence was signed in 1776.",
-    },
-    {
-      question: "Which sentence is correctly capitalized?",
-      points: 25,
-      options: [
-        "Mount Kilimanjaro is the highest peak in Africa.",
-        "Mount kilimanjaro is the highest peak in Africa.",
-        "Mount Kilimanjaro is The highest peak in Africa.",
-        "mount Kilimanjaro is the highest peak in Africa.",
-      ],
-      answer: "Mount Kilimanjaro is the highest peak in Africa.",
     },
     {
       question: "Which sentence is correctly capitalized?",
@@ -372,6 +753,360 @@ export const data: Data = {
         "The Pyramids of giza are ancient wonders in Egypt.",
       ],
       answer: "The Pyramids of Giza are ancient wonders in Egypt.",
+    },
+    {
+      question: "Which of the following sentences is correctly capitalized?",
+      points: 25,
+      options: [
+        "During winter, I often dream of the Caribbean islands.",
+        "During Winter, I often dream of the Caribbean Islands.",
+        "during winter, I often dream of the Caribbean islands.",
+        "During winter, I often dream of the caribbean islands.",
+      ],
+      answer: "During winter, I often dream of the Caribbean islands.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "In the 1920s, the Harlem renaissance celebrated African American culture.",
+        "In the 1920s, The Harlem Renaissance celebrated African American culture.",
+        "In the 1920s, the Harlem Renaissance celebrated african American culture.",
+        "In the 1920s, the Harlem Renaissance celebrated African American culture.",
+      ],
+      answer:
+        "In the 1920s, the Harlem Renaissance celebrated African American culture.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "She loves reading works by william Shakespeare.",
+        "She loves reading works by William shakespeare.",
+        "She loves reading works by William Shakespeare.",
+        "she loves reading works by William Shakespeare.",
+      ],
+      answer: "She loves reading works by William Shakespeare.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The milky way can be clearly seen from remote areas.",
+        "The Milky Way can be clearly seen from remote areas.",
+        "The Milky way can be clearly seen from Remote areas.",
+        "The Milky Way can Be clearly seen from remote areas.",
+      ],
+      answer: "The Milky Way can be clearly seen from remote areas.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The treaty of Versailles ended World War I.",
+        "The Treaty of versailles ended World War I.",
+        "The Treaty Of Versailles ended World War I.",
+        "The Treaty of Versailles ended World War I.",
+      ],
+      answer: "The Treaty of Versailles ended World War I.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "Many consider Johannes Kepler the father of modern astronomy.",
+        "Many consider Johannes kepler the father of modern astronomy.",
+        "Many Consider Johannes Kepler the father of modern astronomy.",
+        "Many consider johannes Kepler the father of Modern astronomy.",
+      ],
+      answer: "Many consider Johannes Kepler the father of modern astronomy.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The tales of King Arthur and his knights are legendary.",
+        "The Tales of king Arthur and his knights are legendary.",
+        "The tales of king arthur and his Knights are legendary.",
+        "The tales of King Arthur and his knights Are legendary.",
+      ],
+      answer: "The tales of King Arthur and his knights are legendary.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The Mississippi river delta is a critical habitat.",
+        "The Mississippi River Delta is a critical habitat.",
+        "The mississippi River delta is a Critical habitat.",
+        "The Mississippi River delta is a critical habitat.",
+      ],
+      answer: "The Mississippi River delta is a critical habitat.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The novel 'To Kill a Mockingbird' is a classic.",
+        "The Novel 'to kill a Mockingbird' is a classic.",
+        "The novel 'to kill a mockingbird' is a Classic.",
+        "The novel 'To kill a Mockingbird' is a classic.",
+      ],
+      answer: "The novel 'To Kill a Mockingbird' is a classic.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The renaissance period marked significant cultural growth.",
+        "The Renaissance period marked significant cultural Growth.",
+        "The Renaissance Period marked significant cultural growth.",
+        "The renaissance Period marked Significant cultural growth.",
+      ],
+      answer: "The Renaissance period marked significant cultural growth.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The city of Venice is known for its canals.",
+        "The City of venice is known for its Canals.",
+        "The city Of Venice is known for its canals.",
+        "The city of venice is Known for its canals.",
+      ],
+      answer: "The city of Venice is known for its canals.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Star Wars' franchise has a massive fan base.",
+        "The 'star wars' franchise has a massive Fan base.",
+        "The 'Star wars' franchise has a massive fan Base.",
+        "The 'Star Wars' franchise has a massive fan base.",
+      ],
+      answer: "The 'Star Wars' franchise has a massive fan base.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The great barrier reef is a natural wonder.",
+        "The Great Barrier reef is a natural wonder.",
+        "The Great barrier Reef is a natural wonder.",
+        "The Great Barrier Reef is a natural wonder.",
+      ],
+      answer: "The Great Barrier Reef is a natural wonder.",
+    },
+    {
+      question: "Which of the following sentences is correctly capitalized?",
+      points: 25,
+      options: [
+        "The leaning tower of Pisa is an architectural marvel.",
+        "The Leaning tower of Pisa is an architectural marvel.",
+        "The leaning Tower of pisa is an architectural marvel.",
+        "The Leaning Tower of Pisa is an architectural marvel.",
+      ],
+      answer: "The Leaning Tower of Pisa is an architectural marvel.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "She said, 'when in Rome, do as the Romans do.'",
+        "She said, 'When in Rome, do as the Romans do.'",
+        "She said, 'When in rome, do as the romans do.'",
+        "She said, 'When In Rome, Do As The Romans Do.'",
+      ],
+      answer: "She said, 'When in Rome, do as the Romans do.'",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The battle of Waterloo marked the end of Napoleon's reign.",
+        "The Battle of waterloo marked the end of Napoleon's reign.",
+        "The Battle Of Waterloo marked the end of napoleon's reign.",
+        "The Battle of Waterloo marked the end of Napoleon's reign.",
+      ],
+      answer: "The Battle of Waterloo marked the end of Napoleon's reign.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The aurora borealis is a natural light display.",
+        "The Aurora borealis is a natural light display.",
+        "The Aurora Borealis is a natural light Display.",
+        "The Aurora Borealis is a natural light display.",
+      ],
+      answer: "The Aurora Borealis is a natural light display.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The last supper was painted by Leonardo da Vinci.",
+        "The Last Supper was painted by Leonardo Da Vinci.",
+        "The Last supper was painted by leonardo da Vinci.",
+        "The Last Supper was painted by Leonardo da Vinci.",
+      ],
+      answer: "The Last Supper was painted by Leonardo da Vinci.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The declaration of Independence was signed in 1776.",
+        "The Declaration of independence was signed in 1776.",
+        "The Declaration Of Independence was signed in 1776.",
+        "The Declaration of Independence was signed in 1776.",
+      ],
+      answer: "The Declaration of Independence was signed in 1776.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The taj mahal is located in Agra, India.",
+        "The Taj mahal is located in Agra, India.",
+        "The Taj Mahal is located in agra, India.",
+        "The Taj Mahal is located in Agra, India.",
+      ],
+      answer: "The Taj Mahal is located in Agra, India.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The great depression began in 1929.",
+        "The Great depression began in 1929.",
+        "The Great Depression began in 1929.",
+        "The great Depression began In 1929.",
+      ],
+      answer: "The Great Depression began in 1929.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The magna carta was signed in 1215.",
+        "The Magna carta was signed in 1215.",
+        "The Magna Carta was signed in 1215.",
+        "The magna Carta Was signed in 1215.",
+      ],
+      answer: "The Magna Carta was signed in 1215.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The berlin wall fell in 1989.",
+        "The Berlin wall fell in 1989.",
+        "The Berlin Wall fell in 1989.",
+        "The berlin Wall Fell in 1989.",
+      ],
+      answer: "The Berlin Wall fell in 1989.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The panama canal connects the Atlantic and Pacific oceans.",
+        "The Panama canal connects the Atlantic and Pacific oceans.",
+        "The Panama Canal connects the atlantic and Pacific oceans.",
+        "The Panama Canal connects the Atlantic and Pacific oceans.",
+      ],
+      answer: "The Panama Canal connects the Atlantic and Pacific oceans.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The novel 'pride and Prejudice' was written by Jane Austen.",
+        "The novel 'Pride and prejudice' was written by Jane Austen.",
+        "The novel 'Pride and Prejudice' was written by jane Austen.",
+        "The novel 'Pride and Prejudice' was written by Jane Austen.",
+      ],
+      answer: "The novel 'Pride and Prejudice' was written by Jane Austen.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "Mount Kilimanjaro is the highest peak in Africa.",
+        "Mount kilimanjaro is the highest peak in Africa.",
+        "Mount Kilimanjaro is The highest peak in africa.",
+        "Mount Kilimanjaro is the highest peak in africa.",
+      ],
+      answer: "Mount Kilimanjaro is the highest peak in Africa.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Lord of the Rings' trilogy was written by J.R.R. Tolkien.",
+        "The 'lord of the Rings' trilogy was written by J.R.R. tolkien.",
+        "The 'Lord of the rings' trilogy was written by J.R.R. Tolkien.",
+        "The 'Lord of the Rings' trilogy was written by J.R.R. Tolkien.",
+      ],
+      answer: "The 'Lord of the Rings' trilogy was written by J.R.R. Tolkien.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Mona Lisa' is one of the most famous paintings in the world.",
+        "The 'mona lisa' is one of the most famous paintings in the World.",
+        "The 'Mona lisa' is one of the most famous paintings in the world.",
+        "The 'Mona Lisa' is one of the most famous paintings in the world.",
+      ],
+      answer:
+        "The 'Mona Lisa' is one of the most famous paintings in the world.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'French Revolution' began in 1789.",
+        "The 'french revolution' began in 1789.",
+        "The 'French revolution' began in 1789.",
+        "The 'French Revolution' began in 1789.",
+      ],
+      answer: "The 'French Revolution' began in 1789.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Silk Road' was an ancient trade route.",
+        "The 'silk road' was an ancient trade Route.",
+        "The 'Silk road' was an ancient trade route.",
+        "The 'Silk Road' was an ancient trade route.",
+      ],
+      answer: "The 'Silk Road' was an ancient trade route.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Cold War' was a period of geopolitical tension.",
+        "The 'cold war' was a period of Geopolitical tension.",
+        "The 'Cold war' was a period of geopolitical tension.",
+        "The 'Cold War' was a period of geopolitical tension.",
+      ],
+      answer: "The 'Cold War' was a period of geopolitical tension.",
+    },
+    {
+      question: "Which sentence is correctly capitalized?",
+      points: 25,
+      options: [
+        "The 'Great Wall of China' is a series of fortifications.",
+        "The 'great wall of China' is a series of Fortifications.",
+        "The 'Great wall of china' is a series of fortifications.",
+        "The 'Great Wall of China' is a series of fortifications.",
+      ],
+      answer: "The 'Great Wall of China' is a series of fortifications.",
     },
   ],
 };

@@ -32,7 +32,7 @@ import { Blobs } from "../components/Blobs";
 import { BiMoney, BiSolidCrown } from "react-icons/bi";
 const previousQuestionsAtom = atom<number[]>([]);
 const difficultyEnum = {
-  10: "Easy",
+  15: "Easy",
   25: "Medium",
   50: "Hard",
 } as const;
@@ -111,6 +111,8 @@ function UserView() {
 function HostView() {
   const gameCode = useParams<{ gameId: string }>().gameId!;
   const lastGameCode = useAtomValue(lastGameCodeAtom);
+  const greerRef = useRef<HTMLImageElement>(null);
+  const laserRef = useRef<HTMLDivElement>(null);
 
   // realtime for the players
   const [userSnapshot] = useCollection(
@@ -119,17 +121,77 @@ function HostView() {
   const [gameSnapshot] = useDocument(doc(firestore, "games", gameCode));
   const remainingTime = useTimeString(gameSnapshot);
   useEffect(() => {
+    // move the laser to greer
+
+    if (laserRef.current && greerRef.current) {
+      laserRef.current.style.transform = `translate(${
+        greerRef.current?.getBoundingClientRect().x + 36
+      }px, ${greerRef.current?.getBoundingClientRect().y + 36}px)`;
+    }
+
     const main = async () => {
       if (remainingTime === "00:00") {
         await updateDoc(doc(firestore, "games", gameCode), {
           ended: true,
         });
       }
+
+      const { seconds } = getRemainingTime(
+        new Date(gameSnapshot?.data()?.endAt.seconds * 1000)
+      );
+
+      const userUIDs = userSnapshot?.docs.map((doc) => doc.id);
+      const randomUserUID =
+        userUIDs?.[Math.floor(Math.random() * userUIDs.length)];
+      // if the remaing time is an interval of 60 seconds
+      if (
+        seconds % 60 === 0 &&
+        seconds !== 0 &&
+        seconds !== 600 &&
+        randomUserUID
+      ) {
+        // get the users
+
+        // subtract 50 points from a random user
+        await updateDoc(
+          doc(firestore, "games", gameCode, "users", randomUserUID),
+          {
+            points: increment(-50),
+          }
+        );
+        const takenAwayUsername = userSnapshot?.docs
+          .find((doc) => doc.id === randomUserUID)
+          ?.data().username;
+        toast.error(
+          `Greer's wrath 🔥 took away 50 points from ${takenAwayUsername} `
+        );
+
+        // shoot the laser at the player
+        // get the player's position
+        const playerRef = document.getElementById(randomUserUID);
+        if (playerRef && greerRef.current && laserRef.current) {
+          const { x, y } = playerRef.getBoundingClientRect();
+          const { x: greerX, y: greerY } =
+            greerRef.current.getBoundingClientRect();
+          const angle = Math.atan2(y - greerY, x - greerX) * (180 / Math.PI);
+          laserRef.current.style.transform = `translate(${x + 32}px, ${
+            y + 48
+          }px) rotate(${angle + 90}deg)`;
+          laserRef.current.style.opacity = "1";
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          laserRef.current.style.opacity = "0";
+        }
+      }
     };
     main();
   }, [remainingTime, gameCode]);
+
   return (
-    <div className="flex h-screen w-screen flex-col text-white">
+    <div className="flex h-screen w-screen flex-col overflow-hidden text-white">
+      <motion.div className="absolute z-50 flex opacity-0" ref={laserRef}>
+        <img src={Laser} alt="" />
+        <img src={Laser} alt="" />
+      </motion.div>
       <div className="flex items-center justify-evenly">
         <div className="mt-10 flex items-end justify-center text-6xl">
           {gameSnapshot?.data()?.ended
@@ -156,6 +218,7 @@ function HostView() {
               duration: 3,
               delay: 2.5,
             }}
+            ref={greerRef}
             src={Face}
             alt="Face"
             className="h-32 w-32"
@@ -176,20 +239,20 @@ function HostView() {
       </div>
 
       <div className="flex h-full w-full items-center justify-evenly">
-        <div className="main-container flex h-3/4 flex-col items-center">
+        <div className="main-container flex h-[50vh] flex-col items-center">
           <h1 className="mb-10 text-center text-5xl font-black">Join Game?</h1>
           <div className="flex h-full flex-col items-center justify-center  gap-5">
             <h1 className="text-center text-5xl font-black">
               Game Code: {gameCode || lastGameCode}
             </h1>
             <QRCode
-              className="rounded-3xl sm:mt-10"
-              value={`${window.origin}/game/${gameCode || lastGameCode}`}
+              className="rounded-xl sm:mt-10"
+              value={`${window.origin}/?code=${gameCode || lastGameCode}`}
             />
           </div>
         </div>
         {/* <!-- leaderboard --> */}
-        <div className="main-container flex h-3/4 w-1/2  flex-col gap-5 overflow-y-scroll">
+        <div className="main-container flex h-[50vh] w-1/2  flex-col gap-5 overflow-y-scroll">
           <h1 className="mb-10 text-center text-5xl font-black">Leaderboard</h1>
           <AnimatePresence>
             <LayoutGroup>
@@ -203,6 +266,7 @@ function HostView() {
                     transition={{ delay: index * 0.25 }}
                     className="flex h-40 items-center justify-between rounded-xl bg-primary/40 p-5  shadow-xl shadow-primary/50 backdrop-blur-3xl backdrop-brightness-50"
                     layoutId={doc.id}
+                    id={doc.id}
                     key={doc.id}
                   >
                     <div className="flex items-center gap-5">
@@ -250,9 +314,7 @@ function HostView() {
             onClick={async () => {
               await updateDoc(doc(firestore, "games", gameCode), {
                 started: true,
-                endAt: Timestamp.fromDate(
-                  new Date(Date.now() + 10 * 60 * 1000)
-                ),
+                endAt: Timestamp.fromDate(new Date(Date.now() + 5 * 60 * 1000)),
               });
             }}
           >
@@ -309,6 +371,7 @@ function GameView() {
   const gameId = useParams<{ gameId: string }>().gameId;
   const gameUid = useAtomValue(gameUIDAtom);
   const [sameId, setSameId] = useState(false);
+  const [isCorrect, setIsCorrect] = useState<"yes" | "no" | "">("");
 
   const [questionIndex, setQuestionIndex] = useState(
     Math.floor(Math.random() * data.questions.length)
@@ -327,38 +390,53 @@ function GameView() {
 
   async function submitAnswer(userResponse: string) {
     setUserResponse(userResponse);
+    console.log(userResponse);
+    if (answeringQuestion) return;
     setAnsweringQuestion(true);
+
     const randomIndex = Math.floor(Math.random() * data.questions.length);
-    if (userResponse === "") return;
-    if (
-      data.questions[questionIndex].answer === userResponse &&
-      gameId &&
-      gameUid &&
-      !sameId
-    ) {
-      try {
+    // see if the question has been asked before
+    if (previousQuestions.includes(randomIndex)) {
+      // if it has, try again
+      submitAnswer(userResponse);
+      return;
+    }
+
+    setPreviousQuestions([...previousQuestions, randomIndex]);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    console.log(data.questions[questionIndex].answer === userResponse);
+
+    if (userResponse === "" || !gameId || !gameUid || sameId) return;
+    try {
+      if (data.questions[questionIndex].answer === userResponse) {
         ///games/342160/users/IZdQanpVKHLSCUdYOMs
+        setIsCorrect("yes");
+
         await updateDoc(doc(firestore, "games", gameId, "users", gameUid), {
           points: increment(data.questions[questionIndex].points),
         });
         toast.success("Correct!");
-      } catch (e) {
-        console.log(e);
+        setAnsweringQuestion(false);
+
+        setSameId(false);
+      } else {
+        setIsCorrect("no");
+        await updateDoc(doc(firestore, "games", gameId, "users", gameUid), {
+          points: increment(-10),
+        });
+        setAnsweringQuestion(false);
+        setSameId(false);
+
+        toast.error("Incorrect!");
       }
-      setSameId(false);
-    } else {
-      toast.error("Incorrect!");
+    } catch (e) {
+      console.log(e);
+      toast.error(`Error: ${e}`);
     }
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    setUserResponse("");
-    if (!previousQuestions.includes(randomIndex) && laserRef.current) {
-      setQuestionIndex(randomIndex);
-      setPreviousQuestions((prev) => [...prev, randomIndex]);
-      setAnsweringQuestion(false);
-      return;
-    }
-    setSameId(true);
-    submitAnswer(userResponse);
+    setAnsweringQuestion(false);
+    setQuestionIndex(randomIndex);
+    setIsCorrect("");
   }
   useAnimationFrame(async () => {
     if (greerRef.current && focusRef.current && laserRef.current) {
@@ -367,7 +445,7 @@ function GameView() {
 
       // roate the laser
 
-      if (answeringQuestion) {
+      if (userResponse !== "") {
         const userResponseIndex =
           data.questions[questionIndex].options.indexOf(userResponse);
         const answerY = document
@@ -376,7 +454,6 @@ function GameView() {
 
         if (answerY) {
           // add a transition
-          await new Promise((resolve) => setTimeout(resolve, 100));
 
           laserRef.current.style.transition =
             "all 0.5s cubic-bezier(0, 0, 0, 1)";
@@ -405,13 +482,13 @@ function GameView() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       key="game"
-      className="h-screen w-screen overflow-hidden"
+      className="min-h-screen w-screen overflow-y-auto overflow-x-hidden"
     >
       <motion.div className="absolute z-10 flex opacity-0" ref={laserRef}>
         <img src={Laser} alt="" />
         <img src={Laser} alt="" />
       </motion.div>
-      <div className="grid h-screen w-full grid-rows-2 overflow-hidden">
+      <div className="mb-10 grid h-screen w-full grid-rows-2 overflow-x-hidden">
         <div className="mt-20 flex flex-col">
           <div className="flex flex-col items-center  gap-5">
             <h1 className="text-center text-2xl font-bold">
@@ -423,7 +500,7 @@ function GameView() {
               <span
                 className={`
             ${
-              data.questions[questionIndex].points === 10
+              data.questions[questionIndex].points === 15
                 ? "text-green-300"
                 : data.questions[questionIndex].points === 25
                 ? "text-yellow-300"
@@ -469,35 +546,43 @@ function GameView() {
         </div>
         <motion.div
           layout
-          className="mb-10 mt-auto flex flex-col gap-5"
+          className="mb-10 mt-auto flex w-full flex-col gap-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <div className="mx-auto h-10 w-10" ref={focusRef} />
-          {data.questions[questionIndex].options.map((answer, index) => (
-            <button
-              id={`answer-${index}`}
-              key={index}
-              className={`mx-5 scale-100 rounded-md px-2 py-4  text-black transition-all duration-300 hover:scale-105 active:scale-90
+          <AnimatePresence>
+            {!answeringQuestion && (
+              <motion.div
+                className="flex w-full flex-col items-center gap-5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {data.questions[questionIndex].options.map((answer, index) => (
+                  <button
+                    id={`answer-${index}`}
+                    key={index}
+                    className={` mx-5 w-5/6 scale-100 rounded-md px-2 py-4  text-black transition-all duration-300 hover:scale-105 active:scale-90
                 ${
-                  answer === userResponse &&
-                  answeringQuestion &&
-                  data.questions[questionIndex].answer === userResponse
+                  //   answer === userResponse &&
+                  isCorrect === "yes" && answer === userResponse
                     ? "animate-ping bg-green-300"
-                    : answer === userResponse &&
-                      answeringQuestion &&
-                      data.questions[questionIndex].answer !== userResponse
+                    : isCorrect === "no" && answer === userResponse
                     ? "animate-ping bg-red-300"
                     : "bg-secondary"
                 }
                 
                 `}
-              onClick={() => submitAnswer(answer)}
-            >
-              {answer}
-            </button>
-          ))}
+                    onClick={() => submitAnswer(answer)}
+                  >
+                    {answer}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </motion.div>
@@ -516,7 +601,7 @@ function BackGroundWrapper({ children }: { children: React.ReactNode }) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="bg-blue-300/40 text-white backdrop-blur-sm">
+        <div className="overflow-x-hidden bg-blue-300/40 text-white backdrop-blur-sm">
           {children}
         </div>
       </div>

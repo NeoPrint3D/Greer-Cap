@@ -1,10 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Blobs } from "../components/Blobs";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Filter from "bad-words";
 import { toast } from "react-hot-toast";
-import { useDebounce } from "react-use";
+import { useDebounce, useSearchParam } from "react-use";
 import {
   addDoc,
   collection,
@@ -33,8 +33,20 @@ const FromEnum = {
 const formTypeAtom = atom<FormType>("join");
 
 export default function Home() {
+  const queryCode = useSearchParam("code");
+  const [, setgameCode] = useAtom(gameCodeAtom);
+  const [, setFormType] = useAtom(formTypeAtom);
   const formType = useAtomValue(formTypeAtom);
   const Form = useMemo(() => FromEnum[formType], [formType]);
+
+  useEffect(() => {
+    console.log(queryCode);
+    if (queryCode) {
+      setgameCode(queryCode);
+      setFormType("username");
+    }
+  }, []);
+
   return (
     <div className="flex h-screen w-full flex-col items-center">
       <Blobs />
@@ -90,11 +102,13 @@ export default function Home() {
 function UsernameView() {
   const navigate = useNavigate();
   const filter = new Filter({ placeHolder: "x" });
-  const gameCode = useAtomValue(gameCodeAtom);
+  const [gameCode] = useAtom(gameCodeAtom);
+
   const [username, setUsername] = useState("");
   const [isUsernameValid, setIsUsernameValid] = useState(false);
   const [, setGameUID] = useAtom(gameUIDAtom);
   const [, setLastgameCode] = useAtom(lastGameCodeAtom);
+  const [creatingUser, setCreatingUser] = useState(false);
 
   useDebounce(
     async () => {
@@ -134,7 +148,8 @@ function UsernameView() {
   async function joinGame(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // see if the username exists
-    if (!isUsernameValid) return;
+    if (!isUsernameValid || creatingUser) return;
+    setCreatingUser(true);
     // create the user
     const res = await addDoc(
       collection(firestore, "games", gameCode, "users"),
